@@ -18,6 +18,9 @@ else ifeq ($(strip $(ISA)), AVX512)
     ifeq ($(strip $(DATA_TYPE)), DP)
         __SIMD_KERNEL__=true
     endif
+else ifeq ($(strip $(ISA)), NEON)
+    __ISA_NEON__=true
+    __SIMD_WIDTH_DBL__=2
 endif
 
 # SIMD width is specified in double-precision, hence it may
